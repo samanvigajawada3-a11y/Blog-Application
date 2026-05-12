@@ -1,0 +1,46 @@
+### Create new Article
+POST http://localhost:4000/author-api/articles
+Content-Type: application/json
+ 
+{
+    "author" : "69b3c86fb15785503999dd61",
+    "title" : "AIML",
+    "category" : "AIML",
+    "content" : "This article is about AI and ML"
+}
+
+### Read own articles
+GET http://localhost:4000/author-api/articles
+
+### Update own article
+PUT http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "articleId" : "69b40f03e539ab47d13fabbc",
+    "title" : "AI vs HI",
+    "category" : "AI",
+    "content" : "This article is about AI vs HI updated version"
+}
+
+### Delete article by Article ID (soft delete)
+PATCH http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "articleId" : "69b4d99f96fbfee7a8985d43",
+    "isArticleActive" : false
+}
+
+
+### Route for Author login
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+    "email" : "sahasragajawada3@gmail.com",
+    "password" : "abcdefghi"
+}
+
+### Route for Author logout
+GET http://localhost:4000/auth/logout 
