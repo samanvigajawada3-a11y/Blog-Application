@@ -12,7 +12,7 @@ config()
 const app = exp()
 // add cors middleware
 app.use(cors({
-    origin : ["http://localhost:5173"],
+    origin : ["http://localhost:5173", "https://blog-application-11f0.onrender.com"],
     credentials : true
 }))
 
