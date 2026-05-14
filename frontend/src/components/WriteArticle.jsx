@@ -60,7 +60,7 @@ function WriteArticle() {
                       message : "Title must be at least 5 characters"
                     },
                   })}/>
-          {errors.title && <p className={errorClass}>{errorClass.title.message}</p>}
+          {errors.title && <p className={errorClass}>{errors.title.message}</p>}
         </div>
 
         {/* Category */}
