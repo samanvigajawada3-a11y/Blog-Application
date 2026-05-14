@@ -56,7 +56,7 @@ function Register() {
       // Loading state
       setLoading(true)
       // POST route implementation
-      let res = await axios.post("https://blog-application-11f0.onrender.com/auth/users", userObj,{withCredentials:true});
+      let res = await axios.post("https://blog-application-11f0.onrender.com/auth/users", formData,{withCredentials:true});
       if(res.status === 201){
         // navigate to login route
         navigate("/login")
