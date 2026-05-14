@@ -12,7 +12,10 @@ config()
 const app = exp()
 // add cors middleware
 app.use(cors({
-    origin : ["http://localhost:5173", "https://blog-application-11f0.onrender.com"],
+    origin : [
+        "http://localhost:5173",
+        "https://blog-application-ymgz.vercel.app"
+    ],
     credentials : true
 }))
 
