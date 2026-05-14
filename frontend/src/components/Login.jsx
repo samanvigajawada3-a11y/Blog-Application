@@ -33,22 +33,24 @@ function Login(){
     login(userCredObj)
   };
     useEffect(()=>{
-      // Navigating based on the Role
-        if(isAuthenticated === true){
-        if(currentUser.role === "USER"){
-          toast.success("Login success and redirecting to User Profile",{duration:3000})
-          navigate("/user-profile")
-        }
-        if(currentUser.role === "AUTHOR"){
-          toast.success("Login success and redirecting to Author Profile",{duration:3000})
-          navigate("/author-profile")
-        }
-        if(currentUser.role === "ADMIN"){
-          toast.success("Login success and navigating to Admin Profile",{duration:3000})
-          navigate("/admin-profile")
-        }
-      }
-    },[isAuthenticated]);
+  if(isAuthenticated && currentUser){
+
+    if(currentUser.role === "USER"){
+      toast.success("Login success and redirecting to User Profile",{duration:3000})
+      navigate("/user-profile")
+    }
+
+    if(currentUser.role === "AUTHOR"){
+      toast.success("Login success and redirecting to Author Profile",{duration:3000})
+      navigate("/author-profile")
+    }
+
+    if(currentUser.role === "ADMIN"){
+      toast.success("Login success and navigating to Admin Profile",{duration:3000})
+      navigate("/admin-profile")
+    }
+  }
+},[isAuthenticated,currentUser])
 
     //deal with loading state
     if(loading){
