@@ -27,7 +27,7 @@ function AdminProfile() {
       // set Loading
       setLoading(true)
       // Get all the users from the DB
-      const res = await axios.get("http://localhost:4000/admin-api/users")
+      const res = await axios.get("https://blog-application-11f0.onrender.com/admin-api/users", { withCredentials: true })
       // verify the status code.
       if(res.status === 200){
         setUsers(res.data?.payload)
@@ -43,7 +43,7 @@ function AdminProfile() {
     // set loading
     setLoading(true)
     // call the patch route to change the state
-    const res = await axios.patch("http://localhost:4000/admin-api/edit",userObj,{withCredentials:true})
+    const res = await axios.patch("https://blog-application-11f0.onrender.com/admin-api/edit",userObj,{withCredentials:true})
   }
 
   const onLogout = async ()=>{
