@@ -204,7 +204,7 @@ function Register() {
               onChange={(event)=>{
                 let file = event.target.files[0]
                 if(file){
-                  setPriview(URL.createObjectURL(file))
+                  setPreview(URL.createObjectURL(file))
                 }
               }}
             />
