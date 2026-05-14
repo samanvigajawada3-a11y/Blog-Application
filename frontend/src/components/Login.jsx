@@ -57,7 +57,7 @@ function Login(){
 
     //deal with error
     if(error){
-      return <p className={loadingClass}>{error.message}</p>
+      return <p className={loadingClass}>{error?.message || error}</p>
     }
 
   return (
