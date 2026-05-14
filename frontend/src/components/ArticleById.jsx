@@ -105,7 +105,7 @@ function ArticleById() {
   const addComment = async(commentObj)=>{
     // add articleId
     commentObj.articleId = article._id;
-    let res = await axios.put("http://localhost:4000/user-api/articles",commentObj,{withCredentials:true})
+    let res = await axios.put("https://blog-application-11f0.onrender.com/user-api/articles",commentObj,{withCredentials:true})
     if(res.status === 200){
       setArticle(res.data.payload)
     }
