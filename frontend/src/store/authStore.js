@@ -60,11 +60,13 @@ export const useAuth = create((set)=>({
     try{
       set({loading : true});
       const res = await axios.get("https://blog-application-11f0.onrender.com/auth/check-auth",{withCredentials:true})
-      set({
-        currentUser : res.data?.payload,
-        isAuthenticated : true,
-        loading : false
-      });
+      if(res.status === 200){
+        set({
+          currentUser : res.data?.payload,
+          isAuthenticated : true,
+          loading : false
+        });
+      }
     }catch(err){
       // If user is not logged in -> do nothing
       if(err.response?.status === 401){
