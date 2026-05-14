@@ -11,7 +11,7 @@ export const useAuth = create((set)=>({
       // set loading true
       set({loading : true,currentUser : null,isAuthenticated : false, error : null})
       // make api call
-      let res = await axios.post("http://localhost:4000/auth/login",userCred,{withCredentials:true})
+      let res = await axios.post("https://blog-application-11f0.onrender.com/auth/login",userCred,{withCredentials:true})
       // update store
       if(res.status === 200){
         set({
@@ -36,7 +36,7 @@ export const useAuth = create((set)=>({
       // set loading state
       set({ loading: true });
       // make logout api req
-      let res = await axios.get("http://localhost:4000/auth/logout",{withCredentials:true})
+      let res = await axios.get("https://blog-application-11f0.onrender.com/auth/logout",{withCredentials:true})
       // update state
       if(res.status === 200){
         set({
@@ -59,7 +59,7 @@ export const useAuth = create((set)=>({
   checkAuth : async()=>{
     try{
       set({loading : true});
-      const res = await axios.get("http://localhost:4000/auth/check-auth",{withCredentials:true})
+      const res = await axios.get("https://blog-application-11f0.onrender.com/auth/check-auth",{withCredentials:true})
       set({
         currentUser : res.data?.payload,
         isAuthenticated : true,
