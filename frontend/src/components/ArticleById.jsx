@@ -51,7 +51,7 @@ function ArticleById() {
     const getArticle = async () => {
       setLoading(true);
        try {
-        const res = await axios.get(`http://localhost:4000/user-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`https://blog-application-11f0.onrender.com/user-api/article/${id}`, { withCredentials: true });
         setArticle(res.data.payload);
       } catch (err) {
         setError(err.response?.data?.error);
