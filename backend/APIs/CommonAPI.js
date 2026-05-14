@@ -1,6 +1,6 @@
 import exp from "express";
 import {hash,compare} from "bcryptjs";
-import {verifyToken} from "../middlewares/verifyToken.js";
+import {verifyToken} from "../middlewares/VerifyToken.js";
 import {userModel} from "../models/UserModel.js"
 // import {verifyToken} from "../middlewares/VerifyToken.js";
 import jwt from "jsonwebtoken"
