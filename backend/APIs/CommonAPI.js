@@ -69,7 +69,7 @@ commonApp.post("/login",async(req,res)=>{
             lastName: user.lastName,
             profileImageUrl: user.profileImageUrl,
         },
-        process.env.SECRET_KEY,{expiresIn : 1000})
+        process.env.SECRET_KEY,{expiresIn : "7d"})
     // Add this info to the header part of the token
     res.cookie("token",signedToken,{httpOnly : true,secure : false, sameSite : "lax"})
     // After login, show you details but not password. So, delete the password
@@ -82,7 +82,7 @@ commonApp.post("/login",async(req,res)=>{
 // Route for logout - Delete the token
 commonApp.get("/logout",(req,res)=>{
     // delete the token from the cookie storage
-    res.clearCookie("SignedToken",{
+    res.clearCookie("token",{
         httpOnly : true,
         secure : false,
         sameSite : "lax"
