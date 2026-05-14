@@ -36,7 +36,7 @@ function EditArticle() {
     // add articleId to modified article
     modifiedUser.articleId = article._id
     // maek PUT request to update the article
-    let res = await axios.put("http://localhost:4000/author-api/articles",modifiedUser,{withCredentials:true})
+    let res = await axios.put("https://blog-application-11f0.onrender.com/author-api/articles",modifiedUser,{withCredentials:true})
     // res.data.payload.role = res.data?.author?.role
     if(res.status === 200){
       // navigate to articleById component
