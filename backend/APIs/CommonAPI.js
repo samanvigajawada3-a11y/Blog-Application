@@ -71,7 +71,8 @@ commonApp.post("/login",async(req,res)=>{
         },
         process.env.SECRET_KEY,{expiresIn : "7d"})
     // Add this info to the header part of the token
-    res.cookie("token",signedToken,{httpOnly : true,secure : false, sameSite : "lax"})
+    const isProd = process.env.NODE_ENV === "production"
+    res.cookie("token",signedToken,{httpOnly : true, secure : isProd, sameSite : isProd ? "none" : "lax"})
     // After login, show you details but not password. So, delete the password
     const userObj = user.toObject() // Convert document to object
     delete userObj.password // delete the password
@@ -82,10 +83,11 @@ commonApp.post("/login",async(req,res)=>{
 // Route for logout - Delete the token
 commonApp.get("/logout",(req,res)=>{
     // delete the token from the cookie storage
+    const isProd = process.env.NODE_ENV === "production"
     res.clearCookie("token",{
         httpOnly : true,
-        secure : false,
-        sameSite : "lax"
+        secure : isProd,
+        sameSite : isProd ? "none" : "lax"
     })
     // send the response
     res.status(200).json({message : "Logout successful"})
