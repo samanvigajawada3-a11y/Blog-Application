@@ -1,7 +1,7 @@
 import exp from "express";
 import { userModel } from "../models/UserModel.js";
 import { articleModel } from "../models/ArticleModel.js";
-import { verifyToken } from "../middlewares/verifyToken.js";
+import { verifyToken } from "../middlewares/VerifyToken.js";
 export const authorApp = exp.Router()
 
 // Create new Article (protected route)
