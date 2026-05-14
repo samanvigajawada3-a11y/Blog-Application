@@ -1,10 +1,11 @@
 import exp from "express";
 import {userModel} from "../models/UserModel.js"
+import { verifyToken } from "../middlewares/VerifyToken.js";
 export const adminApp = exp.Router()
 
 // Read all USERS and AUTHORS (email)
 
-adminApp.get("/users",async(req,res)=>{
+adminApp.get("/users",verifyToken("ADMIN"),async(req,res)=>{
     // Read all the users from the DB
     const users = await userModel.find({role : {$in : ["AUTHOR","USER"]}})
     // Send the response
@@ -12,7 +13,7 @@ adminApp.get("/users",async(req,res)=>{
 })
 
 // Block or Activate User and Author
-adminApp.patch("/edit",async(req,res)=>{
+adminApp.patch("/edit",verifyToken("ADMIN"),async(req,res)=>{
     // get email from the body
     const {email,isUserActive} = req.body;
     // get ther doucument from the DB
