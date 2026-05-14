@@ -85,7 +85,7 @@ function ArticleById() {
 
     try{
       const res = await axios.patch(
-        "http://localhost:4000/author-api/articles",
+        "https://blog-application-11f0.onrender.com/author-api/articles",
         {articleId : article._id,isArticleActive : newStatus},
         {withCredentials : true}
       )
