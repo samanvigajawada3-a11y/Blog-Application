@@ -59,7 +59,7 @@ function EditArticle() {
                     required : "Title is required",
                     },
                   )}/>
-          {errors.title && <p className={errorClass}>{errorClass.title.message}</p>}
+          {errors.title && <p className={errorClass}>{errors.title.message}</p>}
         </div>
 
         {/* Category */}
